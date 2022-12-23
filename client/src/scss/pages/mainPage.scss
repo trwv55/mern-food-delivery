@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+.main-wrapper {
+  background-image: url('../../images/main-bc.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .main-parts {
+    display: flex;
+    padding-top: 100px;
+    padding-bottom: 140px;
+
+    .main-left {
+      .main-title {
+        font-weight: 400;
+        font-size: 60px;
+        line-height: 60px;
+        letter-spacing: 1.8px;
+        color: #08090a;
+
+        span {
+          color: $siteColor;
+        }
+      }
+
+      .main-text {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.36px;
+        color: #546285;
+        margin-top: 27px;
+        margin-bottom: 53px;
+      }
+
+      h4 {
+        padding-top: 30px;
+      }
+
+      .main-app {
+        padding-top: 10px;
+
+        span {
+          color: $siteColor;
+        }
+      }
+    }
+  }
+}

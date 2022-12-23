@@ -1,0 +1,80 @@
+@import '../variables.scss';
+
+.menu-wrapper {
+  background-image: url('../../images/menu-bc.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .menu-content {
+    padding-top: 140px;
+    padding-bottom: 129px;
+    text-align: center;
+
+    .menu-title {
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 55px;
+      color: $siteColor;
+      letter-spacing: 1.65px;
+    }
+
+    .menu-text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
+      padding-top: 29px;
+      letter-spacing: 0.36px;
+      color: #546285;
+    }
+
+    .grid-container {
+      padding-top: 41px;
+
+      .item-wrapper {
+        display: flex;
+
+        img {
+          flex-basis: 120px;
+          height: 120px;
+        }
+
+        .item-content {
+          margin-left: 20px;
+          margin-right: 26px;
+
+          .price-flex {
+            display: flex;
+            justify-content: space-between;
+
+            .item-title {
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 20px;
+              letter-spacing: 0.6px;
+              color: #08090a;
+            }
+
+            span {
+              color: $siteColor;
+            }
+          }
+
+          .item-text {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.32px;
+            color: #546285;
+            padding-top: 15px;
+            text-align: left;
+          }
+
+          .item-add {
+            display: flex;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
