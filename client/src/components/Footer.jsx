@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+import { NavLink } from 'react-router-dom';
 import LogoFooter from '../images/header-footer/logo-head.svg';
 import FooterBC from '../images/header-footer/footer-bc.png';
 
@@ -22,9 +23,9 @@ export default function Footer() {
     <footer>
       <Grid container spacing={2} sx={footer}>
         <Grid item xs={12}>
-          <a href="/">
+          <NavLink to={'/'}>
             <img src={LogoFooter} alt="" />
-          </a>
+          </NavLink>
         </Grid>
 
         <Grid item xs={12}>

@@ -5,6 +5,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import { NavLink } from 'react-router-dom';
 import Burger from '../images/burger.png';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -84,11 +85,13 @@ const MenuScreen = () => {
               </Grid>
             ))}
           </Grid>
-          <Button
-            variant="contained"
-            sx={{ background: '#35B8BE', height: '60px', width: '193px', mt: '49px' }}>
-            See full menu
-          </Button>
+          <NavLink to={'/menu'}>
+            <Button
+              variant="contained"
+              sx={{ background: '#35B8BE', height: '60px', width: '193px', mt: '49px' }}>
+              See full menu
+            </Button>
+          </NavLink>
         </div>
       </Container>
     </div>

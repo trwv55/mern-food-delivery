@@ -5,6 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Logo from '../images/header-footer/logo-head.svg';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import { NavLink } from 'react-router-dom';
 
 const theme = createTheme();
 const navlinks = {
@@ -37,14 +38,16 @@ const Header = ({ handleCart }) => {
     <AppBar className="header-wrapper" position="static" sx={{ background: '#ffffff' }}>
       <Toolbar>
         <Link sx={logo} href="/">
-          <img src={Logo} alt="logo" />
+          <NavLink to={'/'}>
+            <img src={Logo} alt="logo" />
+          </NavLink>
         </Link>
         <Box sx={navlinks}>
           <Link sx={links} href="/" underline="none">
-            Home
+            <NavLink to={'/'}> Home</NavLink>
           </Link>
           <Link sx={links} href="/" underline="none">
-            Menu
+            <NavLink to={'/menu'}> Menu</NavLink>
           </Link>
           <Link sx={links} href="/" underline="none">
             Company
