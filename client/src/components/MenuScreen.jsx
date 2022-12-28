@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
 import { experimentalStyled as styled } from '@mui/material/styles';
@@ -7,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { NavLink } from 'react-router-dom';
 import Burger from '../images/burger.png';
+import { fetchProducts } from '../redux/slices/products.js';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#FFFFFF',
@@ -16,6 +19,22 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const MenuScreen = () => {
+  const dispatch = useDispatch();
+  const { items, status } = useSelector((state) => state.products.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  // const [products, setProducts] = useState([]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await axios.get('/api/products');
+  //     setProducts(res.data);
+  //   };
+  //   fetchData();
+  // }, []);
+
   return (
     <div className="menu-wrapper">
       <Container>
