@@ -26,6 +26,8 @@ const MenuScreen = () => {
     dispatch(fetchProducts());
   }, []);
 
+  const burgerItems = items.filter((item) => item.category === 'Burgers' && item.rating === 5);
+
   // const [products, setProducts] = useState([]);
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -67,43 +69,48 @@ const MenuScreen = () => {
             className="grid-container"
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 4, sm: 8, md: 12 }}>
-            {Array.from(Array(6)).map((_, index) => (
-              <Grid item xs={12} sm={6} md={6} key={index}>
-                <Item>
-                  <div className="item-wrapper">
-                    <img src={Burger} alt="" />
-                    <div className="item-content">
-                      <div className="price-flex">
-                        <h4 className="item-title">Burger Dreams</h4>
-                        <span>$ 9.20 USD</span>
-                      </div>
+            {status === 'loading' ? (
+              <div>Загрузка</div>
+            ) : status === 'error' ? (
+              <div>Страница недоступна</div>
+            ) : (
+              burgerItems.map((item, i) => (
+                <Grid item xs={12} sm={6} md={6} key={i}>
+                  <Item>
+                    <div className="item-wrapper">
+                      <img src={Burger} alt="" />
+                      <div className="item-content">
+                        <div className="price-flex">
+                          <h4 className="item-title">{item.title}</h4>
+                          <span> {item.price} T</span>
+                        </div>
 
-                      <p className="item-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      </p>
-                      <div className="item-add">
-                        <TextField
-                          id="standard-basic"
-                          label="Количество"
-                          variant="standard"
-                          sx={{ width: '70px', mr: '25px' }}
-                        />
-                        <Button
-                          variant="contained"
-                          sx={{
-                            background: '#35B8BE',
-                            height: '45px',
-                            width: '123px',
-                          }}>
-                          Add
-                        </Button>
+                        <p className="item-text">{item.description}</p>
+                        <div className="item-add">
+                          <TextField
+                            id="standard-basic"
+                            label="Количество"
+                            variant="standard"
+                            sx={{ width: '70px', mr: '25px' }}
+                          />
+                          <Button
+                            variant="contained"
+                            sx={{
+                              background: '#35B8BE',
+                              height: '45px',
+                              width: '123px',
+                            }}>
+                            Add
+                          </Button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Item>
-              </Grid>
-            ))}
+                  </Item>
+                </Grid>
+              ))
+            )}
           </Grid>
+
           <NavLink to={'/menu'}>
             <Button
               variant="contained"

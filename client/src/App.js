@@ -11,7 +11,7 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false);
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="app">
         <Header handleCart={() => setCartOpen(true)} />
         <Routes>
           <Route path="/" element={<MainPage />} />

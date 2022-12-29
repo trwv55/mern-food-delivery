@@ -1,7 +1,8 @@
 @import './normalize.scss';
 @import './variables.scss';
 @import './pages/mainPage.scss';
-@import './components/menu.scss';
+@import './components/menuScreen.scss';
+@import "./pages/menu.scss";
 
 *,
 *::after,
@@ -22,6 +23,7 @@ body {
 main {
   flex-grow: 1;
   box-sizing: border-box;
+  flex: 1 0 auto;
 }
 
 p {

@@ -3,10 +3,10 @@ const data = {
     {
       id: 0,
       title: 'Jim Beam® с беконом, сыром чеддер и луковыми кольцами',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: '/images/menu/Jimbeam.jpeg',
       category: 'Burgers',
       price: 1830,
-      rating: 4,
+      rating: 5,
       description:
         'Большая котлета из говядины, луковые кольца в панировке, бекон, соленые огурцы, свежие томаты, сыр чеддер, микс салата. Соус: авторский соус на основе бурбона Джим Бим.',
     },

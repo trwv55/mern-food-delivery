@@ -20,7 +20,7 @@ const footer = {
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <Grid container spacing={2} sx={footer}>
         <Grid item xs={12}>
           <NavLink to={'/'}>

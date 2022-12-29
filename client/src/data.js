@@ -6,7 +6,7 @@ const data = {
       imageURL: 'Jimbeam.jpeg',
       category: 'Burgers',
       price: 1830,
-      rating: 4,
+      rating: 5,
       description:
         'Большая котлета из говядины, луковые кольца в панировке, бекон, соленые огурцы, свежие томаты, сыр чеддер, микс салата. Соус: авторский соус на основе бурбона Джим Бим.',
     },
@@ -171,3 +171,39 @@ const data = {
 };
 
 export default data;
+
+//  <Grid item xs={12} sm={6} md={6} key={index}>
+//                       <Item>
+//                         <div className="item-wrapper">
+//                           <img src={Burger} alt="" />
+//                           <div className="item-content">
+//                             <div className="price-flex">
+//                               <h4 className="item-title">{item.title}</h4>
+//                               <span> {item.price} T</span>
+//                             </div>
+
+//                             <p className="item-text">
+//                               Lorem Ipsum is simply dummy text of the printing and typesetting
+//                               industry.
+//                             </p>
+//                             <div className="item-add">
+//                               <TextField
+//                                 id="standard-basic"
+//                                 label="Количество"
+//                                 variant="standard"
+//                                 sx={{ width: '70px', mr: '25px' }}
+//                               />
+//                               <Button
+//                                 variant="contained"
+//                                 sx={{
+//                                   background: '#35B8BE',
+//                                   height: '45px',
+//                                   width: '123px',
+//                                 }}>
+//                                 Add
+//                               </Button>
+//                             </div>
+//                           </div>
+//                         </div>
+//                       </Item>
+//                     </Grid>,
