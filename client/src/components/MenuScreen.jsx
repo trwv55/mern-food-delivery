@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
 import { experimentalStyled as styled } from '@mui/material/styles';
@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { NavLink } from 'react-router-dom';
 import Burger from '../images/burger.png';
-import { fetchProducts } from '../redux/slices/products.js';
+import Loading from './Loading.jsx';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#FFFFFF',
@@ -18,24 +18,10 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-const MenuScreen = () => {
-  const dispatch = useDispatch();
+const MenuScreen = (props) => {
   const { items, status } = useSelector((state) => state.products.products);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-
   const burgerItems = items.filter((item) => item.category === 'Burgers' && item.rating === 5);
-
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await axios.get('/api/products');
-  //     setProducts(res.data);
-  //   };
-  //   fetchData();
-  // }, []);
 
   return (
     <div className="menu-wrapper">
@@ -70,7 +56,7 @@ const MenuScreen = () => {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 4, sm: 8, md: 12 }}>
             {status === 'loading' ? (
-              <div>Загрузка</div>
+              <Loading width={'1150'} height={'450'} />
             ) : status === 'error' ? (
               <div>Страница недоступна</div>
             ) : (

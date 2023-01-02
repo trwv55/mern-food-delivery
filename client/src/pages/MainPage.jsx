@@ -1,10 +1,19 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MainRight from '../images/main-right.png';
 import Container from '@mui/material/Container';
 import MenuScreen from '../components/MenuScreen';
+import { fetchProducts } from '../redux/slices/products.js';
 
 const MainScreen = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const { items, status } = useSelector((state) => state.products.products);
   return (
     <>
       <div className="main-wrapper">
@@ -36,7 +45,7 @@ const MainScreen = () => {
           </div>
         </Container>
       </div>
-      <MenuScreen />
+      <MenuScreen items={items} status={status} />
     </>
   );
 };

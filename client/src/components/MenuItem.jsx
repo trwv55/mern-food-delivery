@@ -15,11 +15,11 @@ const Img = styled('img')({
   minHeight: '270px',
 });
 
-const MenuItems = () => {
+const MenuItem = ({ item, status }) => {
   return (
     <div className="burgersMenu-wrapper">
       <Paper elevation={3} sx={{ p: 2, maxWidth: 700, flexGrow: 1, minHeight: 300 }}>
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 8, md: 6 }}>
           <Grid item>
             <ButtonBase sx={{ width: 356, height: 270 }}>
               <Img alt="complex" src={Burger} />
@@ -29,17 +29,15 @@ const MenuItems = () => {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography variant="subtitle1" component="div" sx={{ color: '#000' }}>
-                  Jim Beam® с беконом, сыром чеддер и луковыми кольцами
+                  {item.title}
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{ mt: 1 }}>
-                  Большая котлета из говядины, луковые кольца в панировке, бекон, соленые огурцы,
-                  свежие томаты, сыр чеддер, микс салата. Соус: авторский соус на основе бурбона
-                  Джим Бим.
+                  {item.description}
                 </Typography>
                 <Grid item container sx={{ mt: 4 }}>
                   <Grid item>
                     <Typography variant="h6" component="span" sx={{ mr: 4 }}>
-                      ₸ 1800
+                      ₸ {item.price}
                     </Typography>
                   </Grid>
 
@@ -70,4 +68,4 @@ const MenuItems = () => {
   );
 };
 
-export default MenuItems;
+export default MenuItem;
