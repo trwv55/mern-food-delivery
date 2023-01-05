@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import { NavLink } from 'react-router-dom';
-import Burger from '../images/burger.png';
 import Loading from './Loading.jsx';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#FFFFFF',
-  border: '1px solid rgba(53, 184, 190, 0.15)',
-  borderRadius: '6px',
-  padding: theme.spacing(2),
-}));
+import MainPageMenuItem from './MainPageMenuItem';
 
 const MenuScreen = (props) => {
   const { items, status } = useSelector((state) => state.products.products);
-
   const burgerItems = items.filter((item) => item.category === 'Burgers' && item.rating === 5);
 
   return (
@@ -60,40 +48,7 @@ const MenuScreen = (props) => {
             ) : status === 'error' ? (
               <div>Страница недоступна</div>
             ) : (
-              burgerItems.map((item, i) => (
-                <Grid item xs={12} sm={6} md={6} key={i}>
-                  <Item>
-                    <div className="item-wrapper">
-                      <img src={Burger} alt="" />
-                      <div className="item-content">
-                        <div className="price-flex">
-                          <h4 className="item-title">{item.title}</h4>
-                          <span> {item.price} T</span>
-                        </div>
-
-                        <p className="item-text">{item.description}</p>
-                        <div className="item-add">
-                          <TextField
-                            id="standard-basic"
-                            label="Количество"
-                            variant="standard"
-                            sx={{ width: '70px', mr: '25px' }}
-                          />
-                          <Button
-                            variant="contained"
-                            sx={{
-                              background: '#35B8BE',
-                              height: '45px',
-                              width: '123px',
-                            }}>
-                            Add
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </Grid>
-              ))
+              burgerItems.map((item, i) => <MainPageMenuItem item={item} key={i} />)
             )}
           </Grid>
 

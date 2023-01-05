@@ -6,6 +6,7 @@ import Logo from '../images/header-footer/logo-head.svg';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const theme = createTheme();
 const navlinks = {
@@ -34,6 +35,8 @@ const cart = {
 };
 
 const Header = ({ handleCart }) => {
+  const { items } = useSelector((state) => state.cart);
+
   return (
     <AppBar className="header-wrapper" position="static" sx={{ background: '#ffffff' }}>
       <Toolbar>
@@ -55,7 +58,7 @@ const Header = ({ handleCart }) => {
           <Link sx={links} href="/" underline="none">
             Contacts
           </Link>
-          <Badge color="success" badgeContent={4} sx={{ mr: '35px' }}>
+          <Badge color="success" badgeContent={items.length} sx={{ mr: '35px' }}>
             <ShoppingCartIcon onClick={handleCart} color="action" sx={cart} />
           </Badge>
         </Box>
