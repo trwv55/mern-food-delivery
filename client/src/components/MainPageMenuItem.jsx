@@ -44,7 +44,7 @@ const MainPageMenuItem = ({ item }) => {
           <div className="item-content">
             <div className="price-flex">
               <h4 className="item-title">{item.title}</h4>
-              <span> {item.price} T</span>
+              <span>₸ {item.price} </span>
             </div>
 
             <p className="item-text">{item.description}</p>

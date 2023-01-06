@@ -35,7 +35,7 @@ const cart = {
 };
 
 const Header = ({ handleCart }) => {
-  const { items } = useSelector((state) => state.cart);
+  const { items, totalItems } = useSelector((state) => state.cart);
 
   return (
     <AppBar className="header-wrapper" position="static" sx={{ background: '#ffffff' }}>
@@ -58,7 +58,7 @@ const Header = ({ handleCart }) => {
           <Link sx={links} href="/" underline="none">
             Contacts
           </Link>
-          <Badge color="success" badgeContent={items.length} sx={{ mr: '35px' }}>
+          <Badge color="success" badgeContent={totalItems} sx={{ mr: '35px' }}>
             <ShoppingCartIcon onClick={handleCart} color="action" sx={cart} />
           </Badge>
         </Box>

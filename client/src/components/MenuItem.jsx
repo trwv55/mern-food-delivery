@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
@@ -8,6 +8,8 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { addItem, minusItem, removeItem } from '../redux/slices/cart';
 
 const Img = styled('img')({
   display: 'block',
@@ -16,6 +18,38 @@ const Img = styled('img')({
 });
 
 const MenuItem = ({ item, status }) => {
+  const [itemsNum, setItemsNum] = useState(0);
+  const dispatch = useDispatch();
+
+  const handleClickRemove = (event) => {
+    event.preventDefault();
+    setItemsNum((prev) => (prev <= 0 ? 0 : prev - 1));
+    if (itemsNum > 1) {
+      dispatch(minusItem(item));
+    } else if (itemsNum === 1) {
+      dispatch(removeItem(item.id));
+    } else {
+      console.log('Выберите заказ');
+    }
+  };
+
+  const handleClickAdd = (event) => {
+    event.preventDefault();
+    setItemsNum((prev) => prev + 1);
+    const product = {
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      price: item.price,
+      imageURL: item.imageURL,
+    };
+    try {
+      dispatch(addItem(product));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="burgersMenu-wrapper">
       <Paper elevation={3} sx={{ p: 2, maxWidth: 700, flexGrow: 1, minHeight: 300 }}>
@@ -45,16 +79,18 @@ const MenuItem = ({ item, status }) => {
                     variant="extended"
                     size="small"
                     color="default"
-                    aria-label="add"
+                    aria-label="remove"
+                    onClick={handleClickRemove}
                     sx={{ mr: 2 }}>
                     <RemoveIcon />
                   </Fab>
-                  <Typography variant="h6">0</Typography>
+                  <Typography variant="h6">{itemsNum}</Typography>
                   <Fab
                     variant="extended"
                     size="small"
                     color="default"
                     aria-label="add"
+                    onClick={handleClickAdd}
                     sx={{ ml: 2 }}>
                     <AddIcon />
                   </Fab>
