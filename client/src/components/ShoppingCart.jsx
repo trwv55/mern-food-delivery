@@ -19,7 +19,7 @@ import { clearItems } from '../redux/slices/cart';
 const ShoppingCart = (props) => {
   const dispatch = useDispatch();
   const { cartOpen, closeCart } = props;
-  const { totalItems, items, totalPrice } = useSelector((state) => state.cart);
+  const { totalItems, items } = useSelector((state) => state.cart);
 
   const handleCartItem = (event) => {
     event.preventDefault();
@@ -27,6 +27,17 @@ const ShoppingCart = (props) => {
       dispatch(clearItems());
     }
   };
+
+  const calcTotalPrice = () => {
+    let total = 0;
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      total += item.count * item.price;
+    }
+    return total;
+  };
+
+  let totalPrice = calcTotalPrice();
 
   return (
     <Drawer anchor="right" open={cartOpen} onClose={closeCart}>
@@ -51,28 +62,32 @@ const ShoppingCart = (props) => {
             Заказ: {totalPrice} ₸
           </Typography>
         </ListItem>
-        <ListItem sx={{ display: 'flex', mt: 1 }}>
-          <Button
-            variant="contained"
-            sx={{
-              background: '#35B8BE',
-              height: '45px',
-              width: '193px',
-              color: '#ffffff',
-            }}>
-            Оплатить заказ
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={handleCartItem}
-            sx={{
-              height: '45px',
-              width: '193px',
-              ml: 3,
-            }}>
-            Очистить корзину
-          </Button>
-        </ListItem>
+        {totalItems ? (
+          <ListItem sx={{ display: 'flex', mt: 1 }}>
+            <Button
+              variant="contained"
+              sx={{
+                background: '#35B8BE',
+                height: '45px',
+                width: '193px',
+                color: '#ffffff',
+              }}>
+              Оплатить заказ
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={handleCartItem}
+              sx={{
+                height: '45px',
+                width: '193px',
+                ml: 3,
+              }}>
+              Очистить корзину
+            </Button>
+          </ListItem>
+        ) : (
+          ' '
+        )}
       </List>
     </Drawer>
   );

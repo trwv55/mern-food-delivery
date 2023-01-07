@@ -4,7 +4,6 @@ import { createAction } from '@reduxjs/toolkit';
 const initialState = {
   totalItems: 0,
   items: [],
-  totalPrice: 0,
 };
 
 const cartSlice = createSlice({
@@ -42,7 +41,6 @@ const cartSlice = createSlice({
   },
 });
 
-// export const { addItem, removeItem, clearItems } = cartSlice.actions;
 export const addItem = createAction('cart/addItem');
 export const minusItem = createAction('cart/minusItem');
 export const removeItem = createAction('cart/removeItem');

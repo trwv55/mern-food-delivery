@@ -8,6 +8,8 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 
 const CartItem = ({ item }) => {
+  const total = item.count * item.price;
+
   return (
     <List sx={{ width: '100%', maxWidth: 460, bgcolor: 'background.paper' }}>
       <ListItem alignItems="flex-start">
@@ -22,15 +24,15 @@ const CartItem = ({ item }) => {
                 sx={{ display: 'block', mt: 1 }}
                 component="span"
                 variant="body1"
-                color="text.primary">
+                color="#ebebebe">
                 Количество: {item.count}
               </Typography>
               <Typography
                 sx={{ display: 'block', mt: 1 }}
-                component="span"
-                variant="body1"
+                component="h4"
+                variant="subtitle1"
                 color="text.primary">
-                Цена: {item.price} ₸
+                Цена: {total} ₸
               </Typography>
             </>
           }

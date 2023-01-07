@@ -39,7 +39,7 @@ const Menu = () => {
           ? [...Array(burNum)].map(() => <Loading width={'600'} height={'300'} ml={'20'} />)
           : burgersItems.map((item, i) => (
               <Grid item xs={12} md={6} sx={{ ml: 0, width: '100%' }} key={i}>
-                <MenuItem item={item} status={status} />
+                <MenuItem goods={item} />
               </Grid>
             ))}
       </Grid>

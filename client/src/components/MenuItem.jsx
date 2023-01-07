@@ -8,7 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../redux/slices/cart';
 
 const Img = styled('img')({
@@ -17,17 +17,18 @@ const Img = styled('img')({
   minHeight: '270px',
 });
 
-const MenuItem = ({ item, status }) => {
+const MenuItem = ({ goods }) => {
   const [itemsNum, setItemsNum] = useState(0);
   const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.cart);
 
   const handleClickRemove = (event) => {
     event.preventDefault();
     setItemsNum((prev) => (prev <= 0 ? 0 : prev - 1));
     if (itemsNum > 1) {
-      dispatch(minusItem(item));
+      dispatch(minusItem(goods));
     } else if (itemsNum === 1) {
-      dispatch(removeItem(item.id));
+      dispatch(removeItem(goods.id));
     } else {
       console.log('Выберите заказ');
     }
@@ -37,12 +38,13 @@ const MenuItem = ({ item, status }) => {
     event.preventDefault();
     setItemsNum((prev) => prev + 1);
     const product = {
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      price: item.price,
-      imageURL: item.imageURL,
+      id: goods.id,
+      title: goods.title,
+      description: goods.description,
+      price: goods.price,
+      imageURL: goods.imageURL,
     };
+
     try {
       dispatch(addItem(product));
     } catch (error) {
@@ -63,15 +65,15 @@ const MenuItem = ({ item, status }) => {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography variant="subtitle1" component="div" sx={{ color: '#000' }}>
-                  {item.title}
+                  {goods.title}
                 </Typography>
                 <Typography variant="body2" gutterBottom sx={{ mt: 1 }}>
-                  {item.description}
+                  {goods.description}
                 </Typography>
                 <Grid item container sx={{ mt: 4 }}>
                   <Grid item>
                     <Typography variant="h6" component="span" sx={{ mr: 4 }}>
-                      ₸ {item.price}
+                      ₸ {goods.price}
                     </Typography>
                   </Grid>
 
