@@ -47,13 +47,13 @@ const Header = ({ handleCart }) => {
         </Link>
         <Box sx={navlinks}>
           <Link sx={links} href="/" underline="none">
-            <NavLink to={'/'}> Home</NavLink>
+            <NavLink to={'/'}>Главная</NavLink>
           </Link>
           <Link sx={links} href="/" underline="none">
-            <NavLink to={'/menu'}> Menu</NavLink>
+            <NavLink to={'/menu'}>Меню</NavLink>
           </Link>
           <Link sx={links} href="/" underline="none">
-            Company
+            <NavLink to={'/login'}>Войти</NavLink>
           </Link>
           <Link sx={links} href="/" underline="none">
             Contacts
