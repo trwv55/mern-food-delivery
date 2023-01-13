@@ -3,7 +3,7 @@ const data = {
     {
       id: 0,
       title: 'Jim Beam® с беконом, сыром чеддер и луковыми кольцами',
-      imageURL: '/images/menu/Jimbeam.jpeg',
+      imageURL: '/Users/macbook/Documents/pets/mern-food-delivery/client/public/logo192.png',
       category: 'Burgers',
       price: 1830,
       rating: 5,
