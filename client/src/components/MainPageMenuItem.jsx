@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-const MainPageMenuItem = ({ item }) => {
+const MainPageMenuItem = ({ item, showFood }) => {
   const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ const MainPageMenuItem = ({ item }) => {
     <Grid item xs={12} sm={6} md={6}>
       <Item>
         <div className="item-wrapper">
-          <img src={Burger} alt="" />
+          <img src={item.imageURL} alt="" />
           <div className="item-content">
             <div className="price-flex">
               <h4 className="item-title">{item.title}</h4>
@@ -56,19 +56,18 @@ const MainPageMenuItem = ({ item }) => {
                 onChange={(e) => setNumber(e.target.value)}
                 sx={{ width: '70px', mr: '25px' }}
               />
+              <Button
+                type="submit"
+                onClick={(event) => handleItem(event)}
+                variant="contained"
+                sx={{
+                  background: '#35B8BE',
+                  height: '45px',
+                  width: '123px',
+                }}>
+                Добавить
+              </Button>
             </div>
-
-            <Button
-              type="submit"
-              onClick={(event) => handleItem(event)}
-              variant="contained"
-              sx={{
-                background: '#35B8BE',
-                height: '45px',
-                width: '123px',
-              }}>
-              Add
-            </Button>
           </div>
         </div>
       </Item>

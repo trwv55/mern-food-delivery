@@ -3,7 +3,7 @@ const data = {
     {
       id: 0,
       title: 'Jim Beam® с беконом, сыром чеддер и луковыми кольцами',
-      imageURL: '/Users/macbook/Documents/pets/mern-food-delivery/client/public/logo192.png',
+      imageURL: 'https://i.postimg.cc/Qt1Wwrnh/Jimbeam.webp',
       category: 'Burgers',
       price: 1830,
       rating: 5,
@@ -13,7 +13,7 @@ const data = {
     {
       id: 1,
       title: 'Скандинавский с брусничным вареньем и карамелизированным луком',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/RZhJ9tbP/Scandi.webp',
       category: 'Burgers',
       price: 1750,
       rating: 5,
@@ -23,7 +23,8 @@ const data = {
     {
       id: 2,
       title: 'C адыгейским сыром и яйцом',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL:
+        'https://i.postimg.cc/sXRkPpkK/Adygei.webphttps://i.postimg.cc/sXRkPpkK/Adygei.webp',
       category: 'Burgers',
       price: 1680,
       rating: 4,
@@ -33,7 +34,7 @@ const data = {
     {
       id: 3,
       title: 'Классический с сыром чеддер и соусом BBQ',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/XY1FyLCS/classic.webp',
       category: 'Burgers',
       price: 1550,
       rating: 5,
@@ -43,7 +44,7 @@ const data = {
     {
       id: 4,
       title: 'С голубым сыром зелеными томатами и горчицей',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/Qdd1twVJ/bluecheese.webp',
       category: 'Burgers',
       price: 1740,
       rating: 1,
@@ -53,7 +54,7 @@ const data = {
     {
       id: 5,
       title: 'С арахисовой пастой, черносмородиновым вареньем и беконом',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/FKfSbSyf/pasta.jpg',
       category: 'Burgers',
       price: 1780,
       rating: 3,
@@ -63,7 +64,7 @@ const data = {
     {
       id: 6,
       title: 'Французский с луковыми кольцами и дижонской горчицей',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/d3FTKSzd/frensh.webp',
       category: 'Burgers',
       price: 1650,
       rating: 3,
@@ -73,7 +74,7 @@ const data = {
     {
       id: 7,
       title: 'XXL бургер с двумя котлетами',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/k432xpMZ/xxl.jpg',
       category: 'Burgers',
       price: 1970,
       rating: 5,
@@ -83,7 +84,7 @@ const data = {
     {
       id: 8,
       title: 'Картофель с розмарином и соусом',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/Nfp2WDb9/patatoes1.webp',
       category: 'Sides',
       price: 900,
       rating: 5,
@@ -93,7 +94,7 @@ const data = {
     {
       id: 9,
       title: 'Жареный картофель с укропом и чесноком',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/Zqy9vSmp/patatoes2.webp',
       category: 'Sides',
       price: 900,
       rating: 5,
@@ -102,7 +103,7 @@ const data = {
     {
       id: 10,
       title: 'Овощи гриль',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/Fzh16kLV/grill.webp',
       category: 'Sides',
       price: 800,
       rating: 5,
@@ -111,7 +112,7 @@ const data = {
     {
       id: 11,
       title: 'Цезарь с курицей',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/BbCPZB0z/chesar.webp',
       category: 'Salads',
       price: 2100,
       rating: 5,
@@ -121,7 +122,7 @@ const data = {
     {
       id: 12,
       title: 'Хрустящие баклажаны с тофу и томатом в соусе сладкий чили',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/B6TXNBXv/salat-aubergine.jpg',
       category: 'Salads',
       price: 2200,
       rating: 5,
@@ -131,7 +132,7 @@ const data = {
       id: 13,
       title:
         'Тёплый салат с лососем слабой соли, запечённым картофелем, яйцом пашот и зернистой горчицей',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/RZY600kv/salad-salmon.jpg',
       category: 'Salads',
       price: 2500,
       rating: 5,
@@ -141,16 +142,16 @@ const data = {
     {
       id: 14,
       title: 'Домашний сметанник',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/8Cq6ZC4Z/dess-smetana.webp',
       category: 'Desserts',
       price: 1500,
       rating: 5,
-      description: 'Сметана, сахарная пудра, печенье. На выбор со малиной/бананом.',
+      description: 'Сметана, сахарная пудра, печенье. На выбор с малиной/бананом.',
     },
     {
       id: 15,
       title: 'Шоколадный фондан с мороженым',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/nVKD1pD1/dess-fondan.webp',
       category: 'Desserts',
       price: 1800,
       rating: 5,
@@ -160,7 +161,7 @@ const data = {
     {
       id: 16,
       title: 'Венская вафля со сливочным кремом и ягодным соусом',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: 'https://i.postimg.cc/5NxF7T5W/dess-waffle.webp',
       category: 'Desserts',
       price: 1790,
       rating: 5,

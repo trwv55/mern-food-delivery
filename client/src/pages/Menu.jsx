@@ -18,6 +18,9 @@ const Menu = () => {
 
   const burgersItems = items.filter((item) => item.category === 'Burgers');
   const burNum = burgersItems.length;
+  const dishesItems = items.filter((item) => item.category === 'Sides');
+  const saladsItems = items.filter((item) => item.category === 'Salads');
+  const dessertsItems = items.filter((item) => item.category === 'Desserts');
 
   return (
     <>
@@ -46,10 +49,59 @@ const Menu = () => {
       <div className="saladsTitle-wrapper">
         <Container>
           <Divider textAlign="left" sx={{ mt: 4 }}>
+            <Typography variant="h4">Гарниры</Typography>
+          </Divider>
+        </Container>
+      </div>
+      <Grid container spacing={{ xs: 2, md: 3 }}>
+        {status === 'loading'
+          ? [...Array(dishesItems.length)].map(() => (
+              <Loading width={'600'} height={'300'} ml={'20'} />
+            ))
+          : dishesItems.map((item, i) => (
+              <Grid item xs={12} md={6} sx={{ ml: 0, width: '100%' }} key={i}>
+                <MenuItem goods={item} />
+              </Grid>
+            ))}
+      </Grid>
+
+      <div className="saladsTitle-wrapper">
+        <Container>
+          <Divider textAlign="left" sx={{ mt: 4 }}>
             <Typography variant="h4">Салаты</Typography>
           </Divider>
         </Container>
       </div>
+      <Grid container spacing={{ xs: 2, md: 3 }}>
+        {status === 'loading'
+          ? [...Array(saladsItems.length)].map(() => (
+              <Loading width={'600'} height={'300'} ml={'20'} />
+            ))
+          : saladsItems.map((item, i) => (
+              <Grid item xs={12} md={6} sx={{ ml: 0, width: '100%' }} key={i}>
+                <MenuItem goods={item} />
+              </Grid>
+            ))}
+      </Grid>
+
+      <div className="saladsTitle-wrapper desserts">
+        <Container>
+          <Divider textAlign="left" sx={{ mt: 4 }}>
+            <Typography variant="h4">Десерты</Typography>
+          </Divider>
+        </Container>
+      </div>
+      <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mb: 8 }}>
+        {status === 'loading'
+          ? [...Array(dessertsItems.length)].map(() => (
+              <Loading width={'600'} height={'300'} ml={'20'} />
+            ))
+          : dessertsItems.map((item, i) => (
+              <Grid item xs={12} md={6} sx={{ ml: 0, width: '100%' }} key={i}>
+                <MenuItem goods={item} />
+              </Grid>
+            ))}
+      </Grid>
     </>
   );
 };

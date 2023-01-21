@@ -6,7 +6,8 @@ import Footer from './components/Footer';
 import MainPage from './pages/MainPage';
 import ShoppingCart from './components/ShoppingCart';
 import Menu from './pages/Menu';
-import LogInScreen from './pages/LogInScreen';
+import LoginScreen from './pages/LoginScreen';
+import RegisterScreen from './pages/RegisterScreen';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -17,7 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/login" element={<LogInScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/register" element={<RegisterScreen />} />
         </Routes>
         <Footer />
         <ShoppingCart cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -9,7 +9,10 @@ import MainPageMenuItem from './MainPageMenuItem';
 
 const MenuScreen = (props) => {
   const { items, status } = useSelector((state) => state.products.products);
+  const [showFood, setShowFood] = useState('Burgers');
   const burgerItems = items.filter((item) => item.category === 'Burgers' && item.rating === 5);
+  // .concat(items.filter((item) => item.category === 'Salads'));
+  const saladsItems = items.filter((item) => item.category === 'Salads');
 
   return (
     <div className="menu-wrapper">
@@ -29,34 +32,59 @@ const MenuScreen = (props) => {
                 width: '147px',
                 mt: '49px',
                 mr: '20px',
-              }}>
-              Burgers
+              }}
+              onClick={() => setShowFood('Burgers')}>
+              Бургеры
             </Button>
             <Button
               variant="contained"
-              sx={{ background: '#35B8BE', height: '52px', width: '147px', mt: '49px' }}>
-              Sides
+              sx={{ background: '#35B8BE', height: '52px', width: '147px', mt: '49px' }}
+              onClick={() => setShowFood('Salads')}>
+              Салаты
             </Button>
           </div>
-          <Grid
-            container
-            className="grid-container"
-            spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 4, sm: 8, md: 12 }}>
-            {status === 'loading' ? (
-              <Loading width={'1150'} height={'450'} />
-            ) : status === 'error' ? (
-              <div>Страница недоступна</div>
-            ) : (
-              burgerItems.map((item, i) => <MainPageMenuItem item={item} key={i} />)
-            )}
-          </Grid>
+          {showFood === 'Burgers' ? (
+            <Grid
+              container
+              className="grid-container"
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 12, sm: 8, md: 12 }}
+              sx={{ m: '0 auto' }}>
+              {status === 'loading' ? (
+                <Loading width={'1150'} height={'450'} />
+              ) : status === 'error' ? (
+                <div>Страница недоступна</div>
+              ) : (
+                burgerItems.map((item, i) => (
+                  <MainPageMenuItem item={item} key={i} showFood={showFood} />
+                ))
+              )}
+              ;
+            </Grid>
+          ) : (
+            <Grid
+              container
+              className="grid-container"
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 12, sm: 8, md: 12 }}
+              sx={{ m: '0 auto' }}>
+              {status === 'loading' ? (
+                <Loading width={'1150'} height={'450'} />
+              ) : status === 'error' ? (
+                <div>Страница недоступна</div>
+              ) : (
+                saladsItems.map((item, i) => (
+                  <MainPageMenuItem item={item} key={i} showFood={showFood} />
+                ))
+              )}
+            </Grid>
+          )}
 
           <NavLink to={'/menu'}>
             <Button
               variant="contained"
               sx={{ background: '#35B8BE', height: '60px', width: '193px', mt: '49px' }}>
-              See full menu
+              Меню
             </Button>
           </NavLink>
         </div>

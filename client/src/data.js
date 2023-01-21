@@ -3,7 +3,7 @@ const data = {
     {
       id: 0,
       title: 'Jim Beam® с беконом, сыром чеддер и луковыми кольцами',
-      imageURL: 'Jimbeam.jpeg',
+      imageURL: '',
       category: 'Burgers',
       price: 1830,
       rating: 5,

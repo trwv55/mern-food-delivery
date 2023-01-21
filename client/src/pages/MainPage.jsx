@@ -1,6 +1,8 @@
 import { Button } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from '@mui/material/Link';
+import { NavLink } from 'react-router-dom';
 import MainRight from '../images/main-right.png';
 import Container from '@mui/material/Container';
 import MenuScreen from '../components/MenuScreen';
@@ -28,11 +30,13 @@ const MainScreen = () => {
                 laudantium quos nostrum assumenda quod minima possimus impedit molestiae?
               </p>
 
-              <Button
-                variant="contained"
-                sx={{ background: '#35B8BE', height: '60px', width: '193px' }}>
-                Place an Order
-              </Button>
+              <NavLink to={'/login'}>
+                <Button
+                  variant="contained"
+                  sx={{ background: '#35B8BE', height: '60px', width: '193px' }}>
+                  Войти
+                </Button>
+              </NavLink>
 
               <h4>Trustpilot</h4>
               <p className="main-app">

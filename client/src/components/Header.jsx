@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux';
 const theme = createTheme();
 const navlinks = {
   display: 'flex',
-  marginLeft: theme.spacing(95),
 };
 
 const links = {
@@ -19,6 +18,7 @@ const links = {
   fontSize: '17px',
   justifyContent: 'flex-end',
   marginLeft: theme.spacing(10),
+  display: { xs: 'none', md: 'flex' },
   '&:hover': {
     color: '#35B8BE',
   },
@@ -38,8 +38,8 @@ const Header = ({ handleCart }) => {
   const { items, totalItems } = useSelector((state) => state.cart);
 
   return (
-    <AppBar className="header-wrapper" position="static" sx={{ background: '#ffffff' }}>
-      <Toolbar>
+    <AppBar className="header-wrapper" position="sticky" sx={{ background: '#ffffff' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Link sx={logo} href="/">
           <NavLink to={'/'}>
             <img src={Logo} alt="logo" />
@@ -55,8 +55,8 @@ const Header = ({ handleCart }) => {
           <Link sx={links} href="/" underline="none">
             <NavLink to={'/login'}>Войти</NavLink>
           </Link>
-          <Link sx={links} href="/" underline="none">
-            Contacts
+          <Link sx={links} href="/register" underline="none">
+            Регистрация
           </Link>
           <Badge color="success" badgeContent={totalItems} sx={{ mr: '35px' }}>
             <ShoppingCartIcon onClick={handleCart} color="action" sx={cart} />
