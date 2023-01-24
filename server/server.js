@@ -2,7 +2,7 @@ import express from 'express';
 import data from './data.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
-
+import checkMe from './utils/checkMe.js';
 import { registerValidation } from './validations/reg.js';
 import { login, register } from './controllers/UserController.js';
 

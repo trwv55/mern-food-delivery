@@ -1,6 +1,7 @@
 import { body } from 'express-validator';
 
 export const registerValidation = [
+  body('name', 'Укажите имя').isLength({ min: 3 }),
   body('email', 'Неверный формат почты').isEmail(),
   body(
     'password',
@@ -8,5 +9,4 @@ export const registerValidation = [
   )
     .isLength({ min: 6 })
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/),
-  body('name', 'Укажите имя').isLength({ min: 3 }),
 ];

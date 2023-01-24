@@ -7,15 +7,27 @@ import MainRight from '../images/main-right.png';
 import Container from '@mui/material/Container';
 import MenuScreen from '../components/MenuScreen';
 import { fetchProducts } from '../redux/slices/products.js';
+import { selectIsAuth } from '../redux/slices/auth';
 
 const MainScreen = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+  const { items, status } = useSelector((state) => state.products.products);
+  let buttonText;
+  let navigateAuth;
+
+  if (isAuth) {
+    buttonText = 'Меню';
+    navigateAuth = '/menu';
+  } else {
+    buttonText = 'Войти';
+    navigateAuth = '/login';
+  }
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-  const { items, status } = useSelector((state) => state.products.products);
   return (
     <>
       <div className="main-wrapper">
@@ -30,11 +42,11 @@ const MainScreen = () => {
                 laudantium quos nostrum assumenda quod minima possimus impedit molestiae?
               </p>
 
-              <NavLink to={'/login'}>
+              <NavLink to={navigateAuth}>
                 <Button
                   variant="contained"
                   sx={{ background: '#35B8BE', height: '60px', width: '193px' }}>
-                  Войти
+                  {buttonText}
                 </Button>
               </NavLink>
 
